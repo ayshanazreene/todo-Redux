@@ -24,7 +24,7 @@ function App() {
 
             <input className='ms-3 ' type="text" name="" style={{ width: '250px', height: '40px' }} id="textBox"  />
 
-            <button className='fs-5  text-center ' style={{ width: '150px', height: '40px', backgroundColor: 'purple' }} onClick={()=>dispatch(addNewTask({payload:document.getElementById('textBox').value}))}> Add New Task</button>
+            <button className='fs-5  text-center ' style={{ width: '150px', height: '40px', backgroundColor: 'purple' }} onClick={()=>{dispatch(addNewTask({payload:document.getElementById('textBox').value})),document.getElementById('textBox').value=''}}> Add New Task</button>
 
           </div>
           <ul className='fw-bolder' style={{ width: '420px', listStyle:'none' }}>
