@@ -13,16 +13,18 @@ function ListItem(insideItem) {
     return (
         <>
         
-            <li className=' border w-100 rounded m-1' key={insideItem.index}>
+            <li className=' border w-100 rounded m-1' key={insideItem.index} style={{backgroundColor:insideItem.color}}>
                 <div className='d-flex m-2 justify-content-between'>
                     <input type="checkbox" name="todoTask" id="" onChange={()=>{
                          if(event.target.checked)
                             dispatch(taskComplete({payload:insideItem.id}))
+                            
+                         
                         else
                         dispatch(taskCompleteUnchecked({payload:insideItem.id}))
                         }}/>
                     <div className='ms-3'>{insideItem.taskName}</div>
-                    <button className='text-center' onClick={()=>dispatch(deleteTask({payload:insideItem.id}))} style={{ width: '100px', height: '30px', backgroundColor: 'red' }}> <i class="fa-solid fa-trash"></i>Delete</button>
+                    <button className='text-center' onClick={()=>dispatch(deleteTask({payload:insideItem.id}))} style={{ width: '100px', height: '30px', backgroundColor: 'red' }}> <i className="fa-solid fa-trash"></i>Delete</button>
                 </div>
             </li>
         

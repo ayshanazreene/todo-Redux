@@ -7,7 +7,7 @@ const taskSlice=createSlice({
     initialState:{
         countComplete:0,
         taskArray:[],
-        newTask:{id:'',checked:false,taskName:'', deleted:false}
+        newTask:{id:'',checked:false,taskName:'', deleted:false,color:'#FA9C1B'}
 
     },
     reducers:{
@@ -28,10 +28,12 @@ const taskSlice=createSlice({
         },
         taskComplete:(state,action)=>{
             state.taskArray[action.payload.payload].checked=true
+            state.taskArray[action.payload.payload].color='green'
             state.countComplete+=1
         },
         taskCompleteUnchecked:(state,action)=>{
             state.taskArray[action.payload.payload].checked=false
+            state.taskArray[action.payload.payload].color='#FA9C1B'
             state.countComplete-=1
         },
         clearAll:(state)=>{
